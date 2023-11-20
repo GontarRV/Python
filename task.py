@@ -12,22 +12,22 @@ class Survivor:
         self.__workId = Survivor_workId  # код текущей деятельности: 0 - отдыхает,
                                          # 1 - работает, 2 - сражается,
                                          # 3 - перемещается
-    def get_name():
+    def get_name(self):
         return self.__name
     
-    def get_health():
+    def get_health(self):
         return self.__health
     
-    def get_hunger():
+    def get_hunger(self):
         return self.__hunger
     
-    def get_thirst():
+    def get_thirst(self):
         return self.__thirst
     
-    def get_energy():
+    def get_energy(self):
         return self.__energy
     
-    def get_speed():
+    def get_speed(self):
         return self.__speed
 
 
@@ -69,16 +69,17 @@ class Weapon:
             self.__name = Weapon_name 
             self.__damage = Weapon_damage
             self.__range = 3
-    def get_name():
+    
+    def get_name(self):
         return self.__name
 
-    def get_damage():
+    def get_damage(self):
         return self.__damage
 
-    def get_range():
+    def get_range(self):
         return self.__range
 
-    def get_kind():
+    def get_kind(self):
         return self.__kind        
         
     def get_damage(self, dist): # дистанция до цели
@@ -107,19 +108,19 @@ class Pet:
         # 1 - работает, 2 - сражается,
         # 3 - перемещается, # 4 - спит
 
-    def get_name():
+    def get_name(self):
         return self.__name
     
-    def get_health():
+    def get_health(self):
         return self.__health
     
-    def get_hunger():
+    def get_hunger(self):
         return self.__hunger
     
-    def get_damage():
+    def get_damage(self):
         return self.__damage
     
-    def get_workId():
+    def get_workId(self):
         return self.__workId
     
     def Eat(self, food):
