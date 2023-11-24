@@ -37,13 +37,8 @@ class Pet:
             return 0
         return self._damage
     
-    def Eat(self, food):
-        self.__hunger += food
-        if self.__hunger > 100:
-            self.__hunger = 100
-        self.__health += food / 10
-        if self.__health > 100:
-            self.__health = 100
+    def sound(self):
+        print('Животное подает голос')
 
     def sleep(self):
         self.__health += 0.5
@@ -56,6 +51,9 @@ class raven(Pet):
         self.__name = 'Ворон'
         self.__health = 20
         self._damage = 3
+
+    def sound(self):
+        print('Каааар кааар кар')
     
 class wolf(Pet):
 
@@ -64,6 +62,9 @@ class wolf(Pet):
         self.__name = 'Волк'
         self.__health = 40
         self._damage = 6
+
+    def sound(self):
+        print('Аууу аууу аууу')
 
 class Survivor:
 
@@ -75,6 +76,8 @@ class Survivor:
         self.__hunger = Survivor_hunger  # голод значение от 0 до 100, %
         self.__energy = Survivor_energy  # энергия значение от 0 до 100, %
         self.__speed = Survivor_speed  # скорость движения, км/ч
+        self._hand = Weapon() # ячейка руки
+        self._hand = Pet(100) # ячейка питомца
         self.__workId = Survivor_workId  # код текущей деятельности: 0 - отдыхает,
                                          # 1 - работает, 2 - сражается,
                                          # 3 - перемещается
@@ -90,3 +93,24 @@ class Survivor:
     def Run(self, new_speed):
         self.__speed = new_speed
         self.__workId = 3
+
+    
+sur = Survivor('Rom', 50, 50, 50, 2, 0)
+sur._hand = spear()
+sur._pet = wolf(80)
+
+print('Атака выжившего и питомца, составляет:', sur._hand.get_damage(1) + sur._pet.get_damage(1))
+
+# Задание 4.2
+import random
+Kar = raven(80)
+Fang = wolf(80)
+pet = []
+
+for i in range(500):
+    if random.randint(1, 2) % 2 == 0:
+        pet.append(Kar)
+    else:
+        pet.append(Fang)
+    pet[i].sound()
+
