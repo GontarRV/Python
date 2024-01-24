@@ -19,9 +19,8 @@ def repeats(list, N):
         else:
             repeats_elem[item] = 1
     
-    for key, value in repeats_elem.items():
-        if value >= N:
-            print(key)
+        if repeats_elem[item] == N:
+            print(item)
 
 list = []
 
