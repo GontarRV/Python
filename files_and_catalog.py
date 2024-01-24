@@ -28,14 +28,11 @@ def files_and_catalog(dir, ext, Flag):
                 
 # задание 4.2.
 def delite(dir):
-    if not os.path.isdir(dir):
-        return
-    
-    all_in_dir = os.listdir(dir)
 
-    for f in all_in_dir:
-        if os.path.isdir(f):
-            return False
-        
+    res = files_and_catalog(dir, '.*', False)
+
+    if len(res[1]) > 0:
+        return False
+
     shutil.rmtree(dir)
     return True
