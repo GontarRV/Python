@@ -1,33 +1,30 @@
 import os.path
-import glob
 import shutil
 
 
 # задание 4.1.
-def files_and_catalog(dir, expan, Flag):
-    if not os.path.isdir(dir):
-        return
-    
-    if Flag:
-        all_in_dir = os.listdir(dir)
+def files_and_catalog(dir, ext, Flag):
+    files = []
+    dirs = [] 
+    for f in os.listdir(dir):
+        if os.path.isdir(os.path.join(dir,f)):
+            dirs.append(f)
+        else:
+            if ext == ".*" or f.endswith(ext):
+                files.append(f)
 
-        for f in all_in_dir:
-            dir1 = os.path.join(dir, f)
-            print(dir1)
+    if (Flag):
+       f1 = []
+       d1 = []
+       for d in dirs: 
+           res = files_and_catalog(os.path.join(dir,d), ext, False)
+           f1.extend(res[0])
+           d1.extend(res[1])           
 
-            if os.path.isdir(dir1):
-                files_and_catalog(dir1, expan, Flag)
-            else:
-                print(glob.glob(expan))
+       files.extend(f1)
+       dirs.extend(d1)           
 
-    else:
-        print(glob.glob(expan))
-        all_in_dir = os.listdir(dir)
-
-        for f in all_in_dir:
-            dir1 = os.path.join(dir, f)
-            if os.path.isdir(dir1):
-                print(dir1)
+    return [files, dirs]
                 
 # задание 4.2.
 def delite(dir):
