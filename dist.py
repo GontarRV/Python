@@ -14,10 +14,7 @@ def repeats(list, N):
     repeats_elem = {}
 
     for item in list:
-        if item in repeats_elem:
-            repeats_elem[item] += 1
-        else:
-            repeats_elem[item] = 1
+        repeats_elem[item] = repeats_elem.get(item, 0) + 1
     
         if repeats_elem[item] == N:
             print(item)
