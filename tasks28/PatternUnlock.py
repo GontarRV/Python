@@ -28,5 +28,3 @@ def PatternUnlock(N: int, hets: List[int]) -> str:
             access_code += sum[i]
 
     return access_code
-
-print(PatternUnlock(3, [9, 2, 4]))
