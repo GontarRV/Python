@@ -18,10 +18,3 @@ def SynchronizingTables(N: int, ids: List[int],
         truesalary.append(dist.get(ids[i]))
 
     return truesalary
-
-
-
-N = 3
-ids = [50,1,1024]
-salary = [90000,20000,20000]
-print(SynchronizingTables(N, ids, salary))
