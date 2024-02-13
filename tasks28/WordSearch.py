@@ -32,7 +32,7 @@ def WordSearch(lenght: int, s: str, subs: str) -> List[int]:
 
     return_list = []
     for i in range(len(s1list)):
-        if subs in s1list[i]:
+        if subs + ' ' in s1list[i] + ' ':
             return_list.append(1)
         else:
             return_list.append(0)
