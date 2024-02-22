@@ -24,7 +24,7 @@ def MassVote(N: int, Votes: List[int]) -> str:
     if votes_percent.count(big_percent) >= 2:
         return 'no winner'
     
-    if (votes_winner / sum_votes) * 100 >= 50:
+    if (votes_winner / sum_votes) * 100 > 50:
         return 'majority winner ' + str(number_winner)
     else:
         return 'minority winner ' + str(number_winner)
