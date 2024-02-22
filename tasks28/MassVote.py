@@ -28,5 +28,3 @@ def MassVote(N: int, Votes: List[int]) -> str:
         return 'majority winner ' + str(number_winner)
     else:
         return 'minority winner ' + str(number_winner)
-
-print(MassVote(4, [100000, 99999, 2000, 5001]))
