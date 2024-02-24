@@ -32,5 +32,3 @@ def UFO(N: int, data: List[int], octal: bool) -> List[int]:
         return decimal_oct
     
     return decimal_hex
-
-print(UFO(3, [1111111111, 123456123, 12456451235], False))
