@@ -20,9 +20,6 @@ def time(full_time: int, num: int, track_stop: List[int]) -> int:
     full_time += track_stop[0] - num
     track_red_green = track_stop[1] + track_stop[2]
     num = track_stop[0]
-
-    while full_time > track_red_green:
-        track_red_green += track_stop[1] + track_stop[2]
         
     if full_time < track_stop[1]:
         full_time = track_stop[1]
@@ -32,9 +29,7 @@ def time(full_time: int, num: int, track_stop: List[int]) -> int:
         full_time += track_stop[1]
         return full_time, num
         
-    if track_red_green % full_time < track_stop[1]:
+    if full_time % track_red_green >= track_stop[1]:
         return full_time, num
-        
-    if track_red_green % full_time >= track_stop[1]:
-        full_time += track_red_green - track_stop[2] - full_time
-        return full_time, num
+    full_time += track_stop[1] - (full_time % track_red_green)
+    return full_time, num
