@@ -5,6 +5,9 @@ def Unmanned(L: int, N: int, track: List[int]) -> int:
     full_time = 0
     num = 0
 
+    if L <= track[0][0]:
+        return L
+        
     for track_stop in track:
         full_time, num = time(full_time, num, track_stop)
 
