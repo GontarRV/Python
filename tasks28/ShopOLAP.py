@@ -12,16 +12,13 @@ def ShopOLAP(N: int, items: List[str]) -> List[str]:
             dic[List_of_products[i][0]] = int(List_of_products[i][1])
             continue
         dic[List_of_products[i][0]] += int(List_of_products[i][1])
-     
-    grouped_summary = []
-    for k, v in dic.items():
-        grouped_summary.append(str(v) + ' ' + k)
-        
-    grouped_summary = sorted(grouped_summary, reverse = True)
     
-    for i in range(len(grouped_summary)):
-        grouped_summary[i] = grouped_summary[i].split()
-        grouped_summary[i][0], grouped_summary[i][1] = grouped_summary[i][1], grouped_summary[i][0]
-        grouped_summary[i] = ' '.join(grouped_summary[i])
+    grouped_summary = list(dic.items())
+  
+    sorted_items = sorted(grouped_summary, key=lambda item: [-item[1], item[0]])
+    
+    the_final_result = []
+    for i in range(len(sorted_items)):
+        the_final_result.append(sorted_items[i][0] + ' ' + str(sorted_items[i][1])) 
         
-    return grouped_summary
+    return the_final_result
