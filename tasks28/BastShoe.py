@@ -39,7 +39,7 @@ class lapot:
 
     def issue(self, parameter):
 
-        if len(self.final_string) < int(parameter):
+        if len(self.final_string) <= int(parameter):
             return ''
 
         return self.final_string[int(parameter)]
