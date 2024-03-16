@@ -18,7 +18,7 @@ def TreeOfLife(H: int, W: int, N: int, tree: List[str]) -> List[str]:
         year += 1
         if year % 2 == 0:
             tree_zero = destruction(H, W, tree_zero)
-
+        
     old_tree = []
     for i in range(H):
         tree_w = ''
@@ -62,14 +62,15 @@ def destruction(H: int, W: int, tree_zero: List[str]) -> List[str]:
                 if i + 1 < H and tree_zero[i + 1][j] >= 3:
                     tree_zero[i + 1][j] = -1
                 tree_zero[i][j] = 0
+
             if tree_zero[i][j] < 0:
-                if j > 0 and tree_zero[i][j - 1] < 3:
+                if j > 0 and tree_zero[i][j - 1] < 3 and tree_zero[i][j - 1] > 0:
                     tree_zero[i][j - 1] = 0
-                if j + 1 < W and tree_zero[i][j + 1] < 3:
+                if j + 1 < W and tree_zero[i][j + 1] < 3 and tree_zero[i][j + 1] > 0:
                     tree_zero[i][j + 1] = 0
-                if i > 0 and tree_zero[i - 1][j] < 3:
+                if i > 0 and tree_zero[i - 1][j] < 3 and tree_zero[i - 1][j] > 0:
                     tree_zero[i - 1][j] = 0
-                if i + 1 < H and tree_zero[i + 1][j] < 3:
+                if i + 1 < H and tree_zero[i + 1][j] < 3 and tree_zero[i + 1][j] > 0:
                     tree_zero[i + 1][j] = 0
 
                 if j > 0 and tree_zero[i][j - 1] >= 3:
@@ -88,3 +89,5 @@ def destruction(H: int, W: int, tree_zero: List[str]) -> List[str]:
                 tree_zero[i][j] = 0
 
     return tree_zero
+
+print(TreeOfLife(6,7,24,['.......','...+...','....+..','.......','++.....','++.....']))
