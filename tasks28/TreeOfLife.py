@@ -89,5 +89,3 @@ def destruction(H: int, W: int, tree_zero: List[str]) -> List[str]:
                 tree_zero[i][j] = 0
 
     return tree_zero
-
-print(TreeOfLife(6,7,24,['.......','...+...','....+..','.......','++.....','++.....']))
