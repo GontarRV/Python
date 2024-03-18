@@ -2,22 +2,14 @@ from typing import List
 
 def MatrixTurn(Matrix: List[str], M: int, N: int, T: int) -> None:
 
-    matrix = []
     for i in range(M):
-        matrix_col = []
-        for j in range(N):
-            matrix_col.append(Matrix[i][j])
-        matrix.append(matrix_col)
+        Matrix[i] = list(Matrix[i])
 
     for i in range(T):
-        rotate(matrix, M, N)
+        rotate(Matrix, M, N)
     
-    Matrix = []
     for i in range(M):
-        s = ''
-        for j in range(N):
-            s += ''.join(matrix[i][j])
-        Matrix.append(s)
+        Matrix[i] = ''.join(Matrix[i])
     
 def rotate(matrix, M, N):
 
