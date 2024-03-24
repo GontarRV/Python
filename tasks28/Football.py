@@ -3,7 +3,7 @@ from typing import List
 def Football(F: List[int], N: int) -> bool:
 
     if F == sorted(F):
-        return True
+        return False
 
     for i in range(N - 1):
         for j in range(i + 1, N):
