@@ -80,7 +80,7 @@ class LinkedList2:
 
     def insert(self, afterNode, newNode):
         if afterNode is None and self.head is None:
-            self.head = newNode
+            self.add_in_head(newNode)
             return
 
         if afterNode is None and self.head is not None:
@@ -99,7 +99,7 @@ class LinkedList2:
                 self.tail = newNode
             
             if node.next is not None:
-                self.tail.prev = newNode
+                self.next.prev = newNode
             node.next = newNode
             break
 
