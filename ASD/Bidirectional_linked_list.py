@@ -106,12 +106,10 @@ class LinkedList2:
             return
 
         if self.tail is None:
-            newNode.prev = None
-            newNode.next = None
             self.tail = newNode
+            self.head = newNode
         else:
             self.head.prev = newNode
             newNode.next = self.head
-            newNode.prev = None
 
         self.head = newNode
