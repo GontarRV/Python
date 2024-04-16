@@ -6,13 +6,13 @@ class Node:
 
 class Dummy_node(Node):
     def __init__(self):
-        super(Dummy_node, self).__init__()
+        super(self).__init__(None)
         
 
 class LinkedList2:
     def __init__(self):
         self.head = Dummy_node()
-        self.tail = Dummy_node()
+        self.tail = self.head
         self.head.next = self.tail
         self.tail.prev = self.head
 
