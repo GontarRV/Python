@@ -45,7 +45,7 @@ class DynArray:
         j = self.count
         while j > i:
             self.array[j] = self.array[j-1]
-                j -= 1
+            j -= 1
             
         self.array[i] = itm
         self.count += 1
