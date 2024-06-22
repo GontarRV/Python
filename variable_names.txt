@@ -1,0 +1,35 @@
+sum - the_amount_of_toner_costs
+// сумма расходов тонера
+
+smin - string_with_a_minimum_number_of_characters
+// строка с минимальным количеством символов
+
+smax - string_with_the_maximum_number_of_characters
+// строка с максимальным количеством символов
+
+result - sum_of_all_the_numbers_in_the_summary
+// сумма всех чисел в сводке
+
+summary_amount - sum_of_all_the_numbers_in_the_summary_modulo
+// сумма всех чисел в сводке по модулю
+
+sum - total_length_of_the_lines_between_the_digits_of_the_code
+// общая длина линий между цифрами кода
+
+sum_price - maximum_possible_discount_amount
+// максимально возможная величина скидки
+
+the_final_result - sales_summary_in_grouped_form
+// сводка по продажам в сгруппированном виде
+
+speed - moto_speed_kmh
+// скорость мотоциклиста
+
+distance - result_moto_distance_km
+// итоговое пройденное мотоциклистом расстояние
+
+time - travel_time_hours
+// время поездки
+
+timepoint - value_of_time_on_the_segment
+// значение времени на отрезке
