@@ -1,0 +1,54 @@
+6.1
+price - product_price
+// цена продукта
+
+speed - moto_speed_kmh
+// скорость мотоциклиста
+
+time - travel_time_hours
+// время поездки
+
+result - len_linked_list
+// длина связанного списка
+
+center - center_index
+// индекс центра
+
+6.2
+cell
+// ячейка
+
+command
+// команда
+
+request
+// запрос
+
+catalog
+// каталог
+
+6.3 функция generate_login()
+login_letters
+// буквы для создание логина
+
+login_symbols
+// символы для создания логина
+
+login_numbers
+// цифры для создания логина
+
+6.4
+sum_oct - octal_value
+// восьмиричное значение
+
+sum_hex - hexademical_value
+// шестнадцатиричное значение
+
+l - symbol_list
+// список символов
+
+tail - tail_node
+// узел связанного списка, который находится в хвосте
+
+number - random_number
+// случайное число
