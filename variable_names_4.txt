@@ -1,0 +1,35 @@
+f1 - file_list = []
+// список файлов
+
+d1 - dir_list = []
+// список директорий
+
+list - random_list
+// случайный список
+
+s1 - first_line_entered
+// первая введенная строка
+
+s2 - second_line_entered
+// вторая введенная строка
+
+sum - sum_numbers
+// сумма чисел
+
+l1 - room_length
+// длина помещения
+
+l2 - room_width
+// ширина помещения
+
+h - room_height
+// высота помещения
+
+file1 - file_number_one
+// файл номер один
+
+file2 - file_number_two
+// файл номер два
+
+num1 - first_number
+// первое число
