@@ -1,0 +1,25 @@
+3.1
+class Palindrome - class PalindromeChecker
+
+class FileSearch - class FileFinder
+
+class Weapon - class WeaponAbstractInterface
+
+class LinkedList2 - class DoubleLinkedList
+
+class Validate - class Validator
+
+3.2
+creature - create_txt_file
+
+addition - calc_two_files_sum
+
+check_palindrome - is_palindrome
+
+add_author - create_author
+
+change_row_number - edit_row_number
+
+undo - undo_lapot
+
+redo - redo_lapot
