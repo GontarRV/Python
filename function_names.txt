@@ -1,0 +1,35 @@
+maximumprice - calc_three_max_price
+// вычисление трех максимальных цен
+
+MaximumDiscount - calc_maximum_discount
+// вычисление максимальной скидки
+
+PrintingCosts - calc_printing_costs
+// вычисление расходов на печать
+
+Football - ordering_array_in_single_step
+// упорядочивание массива однократным приемом
+
+transposition - performing_transposition
+// выполнение перестановки
+
+rotation - carrying_out_rotation
+// проведение ротации
+
+MassVote - calc_of_results_of_elections
+// вычисление результатов проведенных выборов
+
+squirrel - calc_first_digit_integral
+// вычисление первой цифры интеграла
+
+plus - sum_of_two_numbers
+// сумма двух чисел
+
+repeats - finding_identical_element_by_value
+// нахождение идентичного элемента по значению
+
+sorting - carrying_out_sorting
+// проведение сортировки
+
+palindrom - is_palindrom
+// проверяем является ли значение палиндромом
