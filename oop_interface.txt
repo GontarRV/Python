@@ -1,0 +1,40 @@
+3.1
+class User:
+
+    def __init__(self, role):
+        self.role = role
+
+    def admin(self):
+        return User('admin')
+
+    def moderator(self):
+        return User('moderator')
+
+    def user(self):
+        return User('user')
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return pi * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * pi * self.radius
+
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+    def __str__(self):
+        return f"{self.make} {self.model}"
+
+    def create_car(cls, make_model):
+        make, model = make_model.split(" ")
+        return cls(make, model)
+
+3.2
+// интерфейсов и абстрактных классов пока не было
