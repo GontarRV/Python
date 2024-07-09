@@ -1,0 +1,44 @@
+До: if str(hets[i]) + str(hets[i + 1]) in distance_between_points:
+После: pair_of_dots = str(hets[i]) + str(hets[i + 1])
+       if pair_of_dots in distance_between_points:
+
+После: SYMBOL_STAR = '*' 
+До: '*'
+
+До: if hour % i == 0 and i != 1 and i != hour:
+После: is_not_prime_num = hour % i == 0 and i != 1 and i != hour
+       if is_not_prime_num:
+	
+До: if a > 5 and b > 5 and c > 5 or a < 5 and b < 5 and c < 5:
+После: abc_not_five = a > 5 and b > 5 and c > 5 or a < 5 and b < 5 and c < 5
+       if abc_not_five: 
+
+До: if x % i == 0 and y % i == 0 and i > max_divider:
+После: max_common_divider = x % i == 0 and y % i == 0 and i > max_divider
+       if max_common_divider:	 
+
+До: if i == 1 or i == 2 or i == 4 or i == 5:
+После: i_not_three = i == 1 or i == 2 or i == 4 or i == 5:
+       if i_not_three:
+
+До: n = n / 2
+После: n = n // 2
+
+До: if counter < 3 and index_x != -1 and index_y != -1:
+После: IsExchangeNeeded = counter < 3 and index_x != -1 and index_y != -1
+       if (IsExchangeNeeded):
+
+До: int(11 / 2)
+После: 11 // 2
+
+До: ')'
+После: CLOSE_BRACKET = ')'
+
+До: '('
+После: OPEN_BRACKET = '('
+
+До: average_sum = sum_all_doc / count_doc
+После: if count_doc > 0:
+           average_sum = sum_all_doc / count_doc
+       else:
+           average_sum = 0
