@@ -1,0 +1,116 @@
+3.1
+number = int(input( )) #номер билета на трамвай
+sum1 = 0
+sum2 = 0
+for i in range(3): # вычисляем сумму первых трёх цифр
+    sum1 += number % 10
+    number//= 10
+for j in range(3): # вычисляем сумму последних трёх цифр
+    sum2 += number % 10
+    number//= 10
+if sum1 == sum2: # сравниваем суммы
+    print ("Счастливый билет")
+else:
+    print("Обычный билет")
+
+
+def Keymaker(k: int) -> str:
+    doors_array = [] # создание массива (первый шаг: открытие дверей)
+    for i in range(k):
+        doors_array.append(1)
+    # второй шаг (закрытие каждой второй двери)
+    for j in range(1, k, 2):
+        doors_array[j] = 0
+    # третий и последующие шаги
+    for f in range(k - 2):
+        for a in range(2 + f, k, 3 + f):
+            if doors_array[a] == 0:
+                doors_array[a] = 1
+                continue
+            if doors_array[a] == 1:
+                doors_array[a] = 0
+                continue
+    # для ответа в виде строки
+    string = ''
+    for el in doors_array:
+        string += str(el)
+    return string
+
+    # третий и последующие шаги переключения дверей, на n-м производится переключение каждой n-й двери
+    for f in range(k - 2):
+        for a in range(2 + f, k, 3 + f):
+            if doors_array[a] == 0:
+                doors_array[a] = 1
+                continue
+            if doors_array[a] == 1:
+                doors_array[a] = 0
+                continue
+
+
+def odometer(oksana):
+    distance = 0 # общая протяженность поездки
+    distance += oksana[0] * oksana[1]
+    if len(oksana) > 2:
+        for i in range(2, len(oksana) - 1, 2):
+            previous = oksana[i - 1]
+            distance += oksana[i] * (oksana[i + 1] - previous)
+    return distance
+
+
+# проверка окончательного результата
+# при длине массива = 0 условие не сохраняется
+# при длине = 2 условие сохраняется
+if len(k) == 0:
+    return False
+elif len(k) == 2:
+    return True
+# при дополнительном условии и наличии 0 в результирующем массиве
+# условие сохраняется
+elif len(k) > 2 and 0 not in m[k[0]:k[-1]]:
+    return True
+else:
+    return False
+
+
+def white_walkers(village: str) -> bool:
+    # для проверки задачи создаем массив и передаем в него
+    # только числовые символы из строки
+    ind = []
+
+    for i in range(len(village)):
+        if '1' <= village[i] <= '9':
+            ind.append(i)
+    if len(ind) < 2:
+        return False
+
+
+# служебная функция преобразования входящего массива
+# на выходе получаем суммы чисел входного массива
+def Transform(a: list) -> list:
+    b: list = []
+
+    for i in range(len(a)):
+        for j in range(len(a) - i):
+            k = i + j
+            b.append(max(a[j:k + 1]))
+
+    return b
+
+
+def SynchronizingTables(N, ids, salary):
+    ids2 = []
+    for i in range(N):
+        ids2.append(ids[i])         
+    ids2 = sorted(ids2)
+    salary = sorted(salary)
+    salary2 = []
+    # Сопоставляем элемент двух упорядоченных списков
+    for i in range(N):                 
+        for j in range(N):             
+            if ids[i] == ids2[j]:       
+                salary2.append(salary[j])    
+    return salary2
+
+
+3.2
+К своему сожалению, комментарии в предшествующих кодах отсутствовали, потому что в некоторых местах приходится думать что же я имел ввиду и почему написал именно так
