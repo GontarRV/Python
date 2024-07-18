@@ -1,0 +1,90 @@
+def PrintingCosts(Line):
+    cod = []
+    Cost = [0, ' ']
+    cod.append(Cost)
+    Cost = [3, '`', "'"]
+    ...
+    S = 0
+    for i in range(len(Line)):
+        N = 0
+        for j in range(len(cod)):
+            if Line[i] in cod[j]:
+                N = cod[j][0]
+        if N == 0 and Line[i] != ' ':
+            N = 23
+        S += N
+    return S
+
+// так как в решении стоимость символа повторяться не должна, целесообрано заменить двумерный список на словарь, в котором ключи - это стоимость сомволов, а значение - коллекция символов, которые соответстуют этому расходу
+
+def PrintingCosts(Line):
+    cod = {}
+    cod[0] = [' ']
+    cod[3] = ['`', "'"]
+    ...
+    S = 0
+    for letter in range(len(Line)):
+        N = 0
+        for j in (cod):
+            if letter in cod[j]:
+                N = j
+        if N == 0 and letter != ' ':
+            N = 23
+        S += N
+    return S
+
+// в этом же примере обращение к буквам текста по индексу заменено простым перебором букв в тексте.
+
+
+def PatternUnlock(N, hits):
+    result = 0
+    ...
+    result = list(str(int(round(result, 5) * 100000)))
+    for i in range(len(result)-1, -1, -1):
+        if result[i] == '0':
+            del result[i]
+    S = ''.join(result)
+    return S
+
+// вместо del гораздо лучше просто пройти по списку слева направо и к итоговой строке прибавлять все ненулевые цифры
+
+def PatternUnlock(N, hits):
+    result = 0
+    result = list(str(int(round(result, 5) * 100000)))
+    ...
+    result2 = ''
+    for digit in result:
+        if digit != '0':
+            result2 += str(digit)
+    return result2
+
+
+def MaximumDiscount(N, price):
+    Copy = sorted(price, reverse=True)
+    discont = 0
+    collection = []
+    set_ = []
+    for i in range(N):
+        set_.append(Copy[i])
+        if (i + 1) % 3 == 0:
+            collection.append(set_)
+            set_ = []
+    for i in range(len(collection)):
+        discont += collection[i][2]
+    return discont
+
+// гораздо проще обращаться к размеру получившейся группы if len(set_) == 3:
+
+
+def MaximumDiscount1(N, price):
+    price.sort(reverse=True)
+    discont = 0
+    set_ = []
+    for item in price:
+        set_.append(item)
+        if len(set_) == 3:
+            discont += item
+            set_ = []
+    return discont
+// просто каждый раз, когда коллекция  set_ получает третий элемент,
+его значение добавляется к переменной discont, таким образом, в решении избавились от обращения к элементам списка по индексу
