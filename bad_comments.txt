@@ -1,0 +1,76 @@
+// Закомментированный код
+# def test_in_example(self):
+#     self.assertEqual(TheRabbitsFoot(12, True), [0, 0, 0, 1, 0, 0, 0])
+#
+# def test_12345(self):
+#     self.assertEqual(TheRabbitsFoot(10, True), [0])
+
+// Неочевидный комментарий
+// было
+# Check pair in oxana
+// стало
+# Проверяем четность массива oxana
+
+// Закомментированный код
+# print(UFO(2, [1234, 1777], False))
+
+// Комментарии за закрывающей фигурной скобкой
+neighbor = [0, 1, 0, -1, 0, 1, 0]  # service array for capture cells
+// ранее записал более подробный комментарий
+
+// Шум
+# main cycle
+while flag:
+// лишний комментарий
+
+// Комментарии за закрывающей фигурной скобкой
+for nei in range(4):  # cycle to find cells to capture
+// лишний комментарий
+
+// Избыточные комментарии
+elif state_square[xi][yi] == 0:  # capture zero cell
+
+// Избыточные комментарии
+# add new formatted line
+lines.append(s[start:finish])
+
+// Шум
+# result salary array filled by zeros
+salary_ordered = salary.copy()
+salary_ordered.sort()
+
+// Избыточные комментарии
+# create array for formatted lines
+lines = []
+# create array of '0' and '1' for lines with 'subs'
+res = []
+
+// Комментарии за закрывающей фигурной скобкой
+summ = int(summ / 2)  # summa of all data is 2 * answer
+
+// Избыточные комментарии
+distance = 0  # time to drive total_l
+
+// Не используйте комментарии там, где можно использовать функцию или переменную
+# rebuild string in array
+array = []
+start = 0
+for _ in range(line):
+    finish = start + column
+    array.append(s[start:finish])
+    start = finish
+// эту часть кода можно оформить ввиде функции
+
+// Неочевидные комментарии
+# we have a winner?
+if percent[0] == percent[1]:
+    return 'no winner'
+
+// Неочевидные комментарии
+# majority or minority?
+if percent[0] > 50:
+    return 'majority winner ' + k
+else:
+    return 'minority winner ' + k
+
+
