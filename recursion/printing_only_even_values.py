@@ -1,9 +1,9 @@
-def printing_only_even_values(array: list, move: int = 0):
-    if len(array) <= move:
+def printing_only_even_values(array: list):
+    if array == []:
         return
     
-    if array[move] % 2 == 0:
-        print(array[move])
+    if array[0] % 2 == 0:
+        print(array[0])
+    array.pop(0)
 
-    printing_only_even_values(array, move + 1)
-    
+    printing_only_even_values(array)
