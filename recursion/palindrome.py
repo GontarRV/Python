@@ -1,11 +1,5 @@
-def palindrome(string: str, move: int = 0) -> bool:
+def palindrome(string: str) -> bool:
     if len(string) <= 1:
         return True
-
-    first_character_with_move = string[0]
-    last_character_with_move = string[-1]
-    if first_character_with_move != last_character_with_move:
-        return False
-    
-    string = string[1:-1]
-    return palindrome(string)
+        
+    return string[0] == string[1] and palindrome(string[1:-1])
