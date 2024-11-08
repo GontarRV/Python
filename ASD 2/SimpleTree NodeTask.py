@@ -14,15 +14,18 @@
 # 3.* (бонус +500) Добавьте метод проверки, 
 # симметрично ли дерево относительно своего корня.
 
-    def is_symmetric(tree: list) -> bool:
+    def _is_symmetric(tree: list) -> bool:
         start = 0
-        end = 1
+        end = 2
         while start < len(tree):
             stratum = tree[start:end]
             if len(stratum) != (end - start) or stratum != list(reversed(stratum)):
                 return False
             start = end
-            end = 2 * end  + 1
+            end = 2 * end  + 2
         return True
+
+    def symmetric(Tree: SimpleTree):
+        return _is_symmetric(Tree.Root.Children)
 
     
