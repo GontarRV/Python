@@ -135,22 +135,19 @@ class BST:
         if currentNode.RightChild is not None:
             self._CountNodes(currentNode.RightChild)
 
-    def WideAllNodes(self):
-        if self.Root is None:
-            return []
-        return self._wideallnodes([self.Root], [])
-    
-    def _wideallnodes(self, all_nodes, prew_all_nodes):
-        if len(all_nodes) == 0:
-            return prew_all_nodes
-        new_all_nodes = []
-        for Node in all_nodes:
-            prew_all_nodes.append(node)
-            if Node.LeftChild is not None:
-                new_all_nodes.append(Node.LeftChild)
-            if Node.RightChild is not None:
-                new_all_nodes.append(Node.RightChild)
-        return self._wideallnodes(new_all_nodes, prew_all_nodes)
+    def WideAllNodes(self) -> tuple:
+        if not self.Root:
+            return ()
+        all_nodes = []
+        nodes_in_level = [self.Root]
+        while nodes_in_level:
+            node = nodes_in_level.pop(0)
+            all_nodes.append(node)
+            if node.LeftChild:
+                nodes_in_level.append(node.LeftChild)
+            if node.RightChild:
+                nodes_in_level.append(node.RightChild)
+        return tuple(all_nodes)
     
     def DeepAllNodes(self, value):
         if value == 0:
