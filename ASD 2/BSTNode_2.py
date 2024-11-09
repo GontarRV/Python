@@ -177,5 +177,5 @@ class BST:
     def _pre_order_deepallnodes(self, node, all_nodes):
         if node:
             all_nodes.append(node)
-            self._post_order_deepallnodes(node.LeftChild, all_nodes)
-            self._post_order_deepallnodes(node.RightChild, all_nodes)
+            self._pre_order_deepallnodes(node.LeftChild, all_nodes)
+            self._pre_order_deepallnodes(node.RightChild, all_nodes)
