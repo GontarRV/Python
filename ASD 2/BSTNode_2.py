@@ -150,24 +150,32 @@ class BST:
         return tuple(all_nodes)
     
     def DeepAllNodes(self, value):
+        if not self.Root:
+            return 
+
+        all_nodes = []
         if value == 0:
             self._in_order_deepallnodes(self.Root, all_nodes)
         if value == 1:
             self._post_order_deepallnodes(self.Root, all_nodes)
         if value == 2:
             self._pre_order_deepallnodes(self.Root, all_nodes)
-        
+        return tuple(all_nodes)
+
     def _in_order_deepallnodes(self, node, all_nodes):
-        self._in_order_deepallnodes(node.LeftChild, all_nodes)
-        all_nodes.append(node)
-        self._in_order_deepallnodes(node.RightChild, all_nodes)
+        if node:
+            self._in_order_deepallnodes(node.LeftChild, all_nodes)
+            all_nodes.append(node)
+            self._in_order_deepallnodes(node.RightChild, all_nodes)
 
     def _post_order_deepallnodes(self, node, all_nodes):
-        self._post_order_deepallnodes(node.LeftChild, all_nodes)
-        self._post_order_deepallnodes(node.RightChild, all_nodes)
-        all_nodes.append(node)
+        if node:
+            self._post_order_deepallnodes(node.LeftChild, all_nodes)
+            self._post_order_deepallnodes(node.RightChild, all_nodes)
+            all_nodes.append(node)
         
     def _pre_order_deepallnodes(self, node, all_nodes):
-        all_nodes.append(node)
-        self._post_order_deepallnodes(node.LeftChild, all_nodes)
-        self._post_order_deepallnodes(node.RightChild, all_nodes)
+        if node:
+            all_nodes.append(node)
+            self._post_order_deepallnodes(node.LeftChild, all_nodes)
+            self._post_order_deepallnodes(node.RightChild, all_nodes)
