@@ -137,10 +137,12 @@ class BST:
 
     def WideAllNodes(self):
         if self.Root is None:
-            return ()
+            return []
         return self._wideallnodes([self.Root], [])
     
     def _wideallnodes(self, all_nodes, prew_all_nodes):
+        if len(all_nodes) == 0:
+            return prew_all_nodes
         new_all_nodes = []
         for node in all_nodes:
             prew_all_nodes.append(node)
