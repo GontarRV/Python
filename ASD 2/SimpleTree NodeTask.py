@@ -1,3 +1,5 @@
+from SimpleTreeNode import SimpleTreeNode, SimpleTree
+
 # 1. Напишите метод, который перебирает 
 # всё дерево и прописывает каждому узлу его уровень.
 
@@ -10,22 +12,23 @@
 
     def SetLevelNodes(self):
         self._set_level_nodes(self.Root)
-
+        
 # 3.* (бонус +500) Добавьте метод проверки, 
 # симметрично ли дерево относительно своего корня.
 
-    def _is_symmetric(tree: list) -> bool:
-        start = 0
-        end = 2
-        while start < len(tree):
-            stratum = tree[start:end]
-            if len(stratum) != (end - start) or stratum != list(reversed(stratum)):
-                return False
-            start = end
-            end = 2 * end  + 2
-        return True
+def _is_symmetric(tree: list) -> bool:
+    stratum = []
+    child_nodes = None
+    for n in tree:
+        stratum.extend(n.Children)
+        if child_nodes is None:
+            child_nodes = len(n.Children)
+        if child_nodes != len(n.Children):
+            return False
 
-    def symmetric(Tree: SimpleTree):
-        return _is_symmetric(Tree.Root.Children)
+    if stratum:
+        return _is_symmetric(stratum)
+    return True
 
-    
+def symmetric(Tree: SimpleTree):
+    return _is_symmetric(Tree.Root.Children)
