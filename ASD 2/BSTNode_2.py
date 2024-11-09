@@ -150,7 +150,7 @@ class BST:
                 new_all_nodes.append(node.LeftChild)
             if Node.RightChild is not None:
                 new_all_nodes.append(node.RightChild)
-        return self._wide_node(new_all_nodes, prew_all_nodes)
+        return self._wideallnodes(new_all_nodes, prew_all_nodes)
     
     def DeepAllNodes(self, value):
         if value == 0:
