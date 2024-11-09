@@ -144,12 +144,12 @@ class BST:
         if len(all_nodes) == 0:
             return prew_all_nodes
         new_all_nodes = []
-        for node in all_nodes:
+        for Node in all_nodes:
             prew_all_nodes.append(node)
             if Node.LeftChild is not None:
-                new_all_nodes.append(node.LeftChild)
+                new_all_nodes.append(Node.LeftChild)
             if Node.RightChild is not None:
-                new_all_nodes.append(node.RightChild)
+                new_all_nodes.append(Node.RightChild)
         return self._wideallnodes(new_all_nodes, prew_all_nodes)
     
     def DeepAllNodes(self, value):
