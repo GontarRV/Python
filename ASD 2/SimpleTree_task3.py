@@ -19,7 +19,7 @@ class SimpleTree:
     def _is_symmetric(self,
                       left_children: list[SimpleTreeNode],
                       right_children: list[SimpleTreeNode]):
-        for left_child, right_child in zip(left_children, right_children):
+        for left_child, right_child in zip(left_children, reversed(right_children)):
             if left_child.NodeValue != right_child.NodeValue:
                 return False
             if len(left_child.Children) != len(right_child.Children):
@@ -37,21 +37,3 @@ class SimpleTree:
 
         return self._is_symmetric(self.Root.Children[:(len(self.Root.Children) // 2)],
                                   self.Root.Children[(len(self.Root.Children) // 2):])
-
-
-node1 = SimpleTreeNode(1, None)
-tree = SimpleTree(node1)
-node2 = SimpleTreeNode(2, None)
-tree.AddChild(node1, node2)
-node3 = SimpleTreeNode(2, None)
-tree.AddChild(node1, node3)
-node4 = SimpleTreeNode(3, None)
-node5 = SimpleTreeNode(4, None)
-tree.AddChild(node2, node4)
-tree.AddChild(node2, node5)
-node6 = SimpleTreeNode(4, None)
-tree.AddChild(node3, node6)
-node7 = SimpleTreeNode(3, None)
-tree.AddChild(node3, node7)
-
-print(tree.symmetric())
