@@ -8,53 +8,70 @@ class SimpleTreeNode:
 class SimpleTree:
 
     def __init__(self, root):
-        self.Root = root # корень, может быть None
-	
+        self.Root = root  # корень, может быть None
+
     def AddChild(self, ParentNode, NewChild):
         ParentNode.Children.append(NewChild)
         NewChild.Parent = ParentNode
-  
+
     def DeleteNode(self, NodeToDelete):
+        if NodeToDelete.Parent is None:
+            return
         NodeToDelete.Parent.Children.remove(NodeToDelete)
+        NodeToDelete.Parent = None
+        NodeToDelete.Children.clear()
 
-    def GetAllNodes(self) -> list:
-        if self.Root is None:
-            return []
-        return self._get_all_nodes(self.Root)
+    def GetAllNodes(self):
+        outputList = []
 
-    def FindNodesByValue(self, val) -> list:
-        return self._find_nodes_by_value(self.Root, val)
-   
+        def findNode(node):
+            outputList.append(node)
+            if len(node.Children) == 0:
+                return outputList
+            for item in node.Children:
+                outputList + findNode(item)
+            return outputList
+
+        outputList + findNode(self.Root)
+        return outputList
+
+    def FindNodesByValue(self, val):
+        outputList = []
+        for item in self.GetAllNodes():
+            if item.NodeValue == val:
+                outputList.append(item)
+        return outputList
+
     def MoveNode(self, OriginalNode, NewParent):
-        self.DeleteNode(OriginalNode)
-        self.AddChild(NewParent, OriginalNode)
-   
+        if OriginalNode.Parent is None:
+            return
+        OriginalNode.Parent.Children.remove(OriginalNode)
+        OriginalNode.Parent = NewParent
+        NewParent.Children.append(OriginalNode)
+
     def Count(self):
-        node_counter = 0
-        for node in iter(self):
-            node_counter += 1
-        return node_counter
+        return len(self.GetAllNodes())
 
     def LeafCount(self):
-        leaf_counter = 0
-        for node in iter(self):
-            if len(node.Children) == 0:
-                leaf_counter += 1
-        return leaf_counter
-	    
-    def __nodes_to_remove_edge(self, node: SimpleTreeNode, nodes_remove_edge: list):
+        count = 0
+        for item in self.GetAllNodes():
+            if len(item.Children) == 0:
+                count += 1
+        return count
+    
+    def findPath(self, node, list):
         count = 1
-        for child in node.Children:
-            count += self.__nodes_to_remove_edge(child, nodes_remove_edge)
-        if count % 2 == 0 and node.Parent:
-            nodes_remove_edge.append(node.Parent)
-            nodes_remove_edge.append(node)
+        for i in node.Children:
+            count += self.findPath(i, list)
+        if count % 2 == 0 and node.Parent is not None:
+            list.append(node.Parent)
+            list.append(node)
             count = 0
         return count
 
     def EvenTrees(self):
-        if not self.Root:
-            return []
-        roots_even_trees = []
-        self.__nodes_to_remove_edge(self.Root, roots_even_trees)
-        return roots_even_trees
+        outputList = []
+        if self.Root is None:
+            return outputList
+        self.findPath(self.Root, outputList)
+        return outputList
