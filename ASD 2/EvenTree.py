@@ -30,22 +30,18 @@ class SimpleTree:
         self.AddChild(NewParent, OriginalNode)
    
     def Count(self):
-        return len(self.GetAllNodes())
+        node_counter = 0
+        for node in iter(self):
+            node_counter += 1
+        return node_counter
 
     def LeafCount(self):
-        return len([node for node in self.GetAllNodes() if not node.Children])
-
-    def SetLevelNodes(self):
-        self.__set_level_nodes(self.Root)
-
-    def AssignLevels(self):
-        if self.Root is None:
-            return
-        self.Root.Level = 1
-        for node in self.GetAllNodes():
-            if node.Parent is not None:
-                node.Level = node.Parent.Level + 1
-
+        leaf_counter = 0
+        for node in iter(self):
+            if len(node.Children) == 0:
+                leaf_counter += 1
+        return leaf_counter
+	    
     def __nodes_to_remove_edge(self, node: SimpleTreeNode, nodes_remove_edge: list):
         count = 1
         for child in node.Children:
