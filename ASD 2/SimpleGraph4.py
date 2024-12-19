@@ -86,25 +86,35 @@ class SimpleGraph:
         return pathes.get(VTo) or []
 
     def WeakVertices(self):
-        verticies = [v for v in range(len(self.vertex)) if self.vertex[v] is not None]
+        for Node in self.vertex:
+            if (Node is None) or (Node.Hit == False):
+                continue
+            Node.Hit = False
+        if self.vertex[0] is None:
+            return []
+        triangle_indices = list(self._weak_vertices([(0, None, set())], set()))
+        beyond_triangle_nodes = [self.vertex[i] for i in range(self.max_vertex) if (self.vertex[i] is not None) and i not in triangle_indices]
+        return beyond_triangle_nodes
 
-        return [self.vertex[v] for v in verticies if self._is_weak(v)]
-
-    def _is_weak(self, v):
-        self.vertex[v].Hit = True
-        for rel_v in self._get_unvisited_related(v):
-            self.vertex[rel_v].Hit = True
-            for rel_rel_v in self._get_unvisited_related(rel_v):
-                self.vertex[rel_rel_v].Hit = True
-                self.vertex[v].Hit = False
-                for rel_rel_rel_v in self._get_unvisited_related(rel_rel_v):
-                    self.vertex[rel_rel_rel_v].Hit = True
-                    if v == rel_rel_rel_v:
-                        self._unhit()
-                        return False
-                self.vertex[v].Hit = True
-        self._unhit()
-        return True
+    def _weak_vertices(self, queue: list, triangle_indices: set):
+        if len(queue) == 0:
+            return triangle_indices
+        index, prev_index, prev_node_connected_indices = queue.pop(0)
+        self.vertex[index].Hit = True
+        connected_visited_nodes = set()
+        for i in range(self.max_vertex):
+            if self.vertex[i] is None:
+                continue
+            if self.m_adjacency[index][i] == 1:
+                connected_visited_nodes.add(i)
+        for ci in connected_visited_nodes:
+            if self.vertex[ci].Hit == False:
+                queue.append((ci, index, connected_visited_nodes))
+        intersected_indices = connected_visited_nodes.intersection(prev_node_connected_indices)
+        if len(intersected_indices):
+            triangle_indices.add(prev_index)
+            triangle_indices.add(index)
+        return self._weak_vertices(queue, triangle_indices)
 
     def _breadth_first_search(self, currV: int, VTo: int, q: list[int],
                               prev_vertecies: list[int], pathes: dict):
